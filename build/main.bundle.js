@@ -1,16 +1,65 @@
-"use strict";
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.there = undefined;
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-var _testmodule = require("testmodule");
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-var _testmodule2 = _interopRequireDefault(_testmodule);
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-var there = exports.there = "light";
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 
-alert(_testmodule2.default.greeting());
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.there = undefined;
+
+	var _testmodule = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"testmodule\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _testmodule2 = _interopRequireDefault(_testmodule);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var there = exports.there = "light";
+
+	alert(_testmodule2.default.greeting());
+
+/***/ }
+/******/ ]);
