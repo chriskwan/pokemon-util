@@ -2,7 +2,7 @@
   "name": "pokemon-util",
   "version": "0.0.1",
   "description": "Convenient Pokémon utility for all your Pokémon project needs",
-  "main": "index.js",
+  "main": "build/main.bundle.js",
   "scripts": {
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
