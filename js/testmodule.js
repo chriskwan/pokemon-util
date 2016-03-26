@@ -1,7 +1,5 @@
 console.log("I will say hello");
 
-function greeting() {
+export default function greeting() {
     return "hello!";
 }
-
-export default;

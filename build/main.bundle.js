@@ -51,7 +51,7 @@
 	});
 	exports.there = undefined;
 
-	var _testmodule = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"testmodule\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _testmodule = __webpack_require__(1);
 
 	var _testmodule2 = _interopRequireDefault(_testmodule);
 
@@ -60,6 +60,22 @@
 	var there = exports.there = "light";
 
 	alert(_testmodule2.default.greeting());
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = greeting;
+	console.log("I will say hello");
+
+	function greeting() {
+	    return "hello!";
+	}
 
 /***/ }
 /******/ ]);
