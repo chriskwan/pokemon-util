@@ -1,6 +1,6 @@
 {
   "name": "pokemon-util",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Convenient Pokémon utility for all your Pokémon project needs",
   "main": "build/main.bundle.js",
   "scripts": {
