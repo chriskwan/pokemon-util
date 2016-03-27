@@ -120,28 +120,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return Math.floor(Math.random() * (max - min + 1) + min);
 	};
 
-	var randomPokemon = {
-	    getPokemon: function getPokemon(id, callback, spriteCallback) {
-	        var url = pokemonApiBasePath + "/api/v2/pokemon/" + id;
-	        getUrl(url, function (e) {
-	            var pokemon = e.currentTarget.response;
+	var getPokemon = function getPokemon(id, callback, spriteCallback) {
+	    var url = pokemonApiBasePath + "/api/v2/pokemon/" + id;
+	    getUrl(url, function (e) {
+	        var pokemon = e.currentTarget.response;
 
-	            if (callback) {
-	                callback(pokemon);
-	            }
+	        if (callback) {
+	            callback(pokemon);
+	        }
 
-	            getPokemonSprite(pokemon.name, spriteCallback);
-	        });
-	    },
-
-	    getRandomPokemonNumber: function getRandomPokemonNumber() {
-	        // Pokemon API goes from 1 - 721 (Volcanion)
-	        //cwkTODO get this programmatically
-	        return getRandomNumberInRangeInclusive(1, 721);
-	    }
+	        getPokemonSprite(pokemon.name, spriteCallback);
+	    });
 	};
 
-	exports.default = randomPokemon;
+	var getRandomPokemonNumber = function getRandomPokemonNumber() {
+	    // Pokemon API goes from 1 - 721 (Volcanion)
+	    //cwkTODO get this programmatically
+	    return getRandomNumberInRangeInclusive(1, 721);
+	};
+
+	exports.getPokemon = getPokemon;
+	exports.getRandomPokemonNumber = getRandomPokemonNumber;
 
 /***/ }
 /******/ ])
