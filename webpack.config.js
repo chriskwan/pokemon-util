@@ -2,7 +2,10 @@ module.exports = {
     entry: "./js/main.js",
     output: {
         path: "build",
-        filename: "main.bundle.js"
+        filename: "main.bundle.js",
+        library: "pokemon-util",
+        libraryTarget: "umd",
+        umdNamedDefine: true
     },
     module: {
         loaders: [{
