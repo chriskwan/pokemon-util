@@ -15,7 +15,7 @@ const getUrl = function (url, callback) {
 const getPokemonAnimatedSprite = function (pokemonName) {
     //cwkTODO change to passing in pokemon Number and grabbing name for dictionary
     //cwkTODO or wrap a pokemon object that has both
-    let url = "https://www.smogon.com/dex/media/sprites/xy/" + pokemonName + ".gif";
+    let url = `https://www.smogon.com/dex/media/sprites/xy/${pokemonName}.gif`;
     //cwkTODO how to check if image does not exist?
     return url;
 };
@@ -32,7 +32,7 @@ const getPokemonSprite = function (pokemonName, callback) {
 
     //cwkTODO update this to v2 now that sprites are supported!
     // https://github.com/phalt/pokeapi/issues/80
-    let url = pokemonApiBasePath + "/api/v1/pokemon/" + pokemonName;
+    let url = `${pokemonApiBasePath}/api/v1/pokemon/${pokemonName}`;
     getUrl(url, function (e) {
         let pokemon = e.currentTarget.response;
 
@@ -60,7 +60,7 @@ const getRandomNumberInRangeInclusive = function (min, max) {
 };
 
 const getPokemon = function (id, callback, spriteCallback) {
-    let url = pokemonApiBasePath + "/api/v2/pokemon/" + id;
+    let url = `${pokemonApiBasePath}/api/v2/pokemon/${id}`;
     getUrl(url, function (e) {
         let pokemon = e.currentTarget.response;
 
