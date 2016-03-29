@@ -4,7 +4,7 @@
 
 const pokemonApiBasePath = "https://pokeapi.co";
 
-const getUrl = function (url, callback) {
+const getUrl = (url, callback) => {
     let request = new XMLHttpRequest();
     request.onload = callback;
     request.open("GET", url);
@@ -12,7 +12,7 @@ const getUrl = function (url, callback) {
     request.send();
 };
 
-const getPokemonAnimatedSprite = function (pokemonName) {
+const getPokemonAnimatedSprite = (pokemonName) => {
     //cwkTODO change to passing in pokemon Number and grabbing name for dictionary
     //cwkTODO or wrap a pokemon object that has both
     let url = `https://www.smogon.com/dex/media/sprites/xy/${pokemonName}.gif`;
@@ -21,7 +21,7 @@ const getPokemonAnimatedSprite = function (pokemonName) {
 };
 
 //cwkTODO change to passing in the pokemonNumber
-const getPokemonSprite = function (pokemonName, callback) {
+const getPokemonSprite = (pokemonName, callback) => {
 
     //cwkTODO change to passing in pokemonNumber
     let animatedSpriteUrl = getPokemonAnimatedSprite(pokemonName);
@@ -33,12 +33,12 @@ const getPokemonSprite = function (pokemonName, callback) {
     //cwkTODO update this to v2 now that sprites are supported!
     // https://github.com/phalt/pokeapi/issues/80
     let url = `${pokemonApiBasePath}/api/v1/pokemon/${pokemonName}`;
-    getUrl(url, function (e) {
+    getUrl(url, (e) => {
         let pokemon = e.currentTarget.response;
 
         if (pokemon && pokemon.sprites && pokemon.sprites.length) {
             let spriteUrl = pokemonApiBasePath + pokemon.sprites[0].resource_uri;
-            getUrl(spriteUrl, function (e) {
+            getUrl(spriteUrl, (e) => {
                 let sprite = e.currentTarget.response;
 
                 if (callback) {
@@ -54,14 +54,14 @@ const getPokemonSprite = function (pokemonName, callback) {
     });
 };
 
-const getRandomNumberInRangeInclusive = function (min, max) {
+const getRandomNumberInRangeInclusive = (min, max) => {
     // Ref: http://stackoverflow.com/a/7228322
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const getPokemon = function (id, callback, spriteCallback) {
+const getPokemon = (id, callback, spriteCallback) => {
     let url = `${pokemonApiBasePath}/api/v2/pokemon/${id}`;
-    getUrl(url, function (e) {
+    getUrl(url, (e) => {
         let pokemon = e.currentTarget.response;
 
         if (callback) {
@@ -72,7 +72,7 @@ const getPokemon = function (id, callback, spriteCallback) {
     });
 };
 
-const getRandomPokemonNumber = function () {
+const getRandomPokemonNumber = () => {
     // Pokemon API goes from 1 - 721 (Volcanion)
     //cwkTODO get this programmatically
     return getRandomNumberInRangeInclusive(1, 721);
