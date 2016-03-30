@@ -12,6 +12,15 @@ const getUrl = (url, callback) => {
     request.send();
 };
 
+// Ref: http://benmccormick.org/2015/12/30/es6-patterns-converting-callbacks-to-promises/
+const fetch = (url, options = { method: "GET" }) => new Promise((resolve, reject) => {
+    let request = new XMLHttpRequest();
+    request.onload = resolve;
+    request.onerror = reject;
+    request.open(options.method, url, true);
+    request.send();
+});
+
 const getPokemonAnimatedSprite = (pokemonName) => {
     //cwkTODO change to passing in pokemon Number and grabbing name for dictionary
     //cwkTODO or wrap a pokemon object that has both
