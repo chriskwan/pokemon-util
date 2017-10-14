@@ -24,7 +24,7 @@ const fetch = (url, options = { method: "GET" }) => new Promise((resolve, reject
 const getPokemonAnimatedSprite = (pokemonName) => {
     //cwkTODO change to passing in pokemon Number and grabbing name for dictionary
     //cwkTODO or wrap a pokemon object that has both
-    let url = `https://www.smogon.com/dex/media/sprites/xy/${pokemonName}.gif`;
+    let url = `http://www.smogon.com/dex/media/sprites/xy/${pokemonName}.gif`;
     //cwkTODO how to check if image does not exist?
     return url;
 };
